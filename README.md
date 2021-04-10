@@ -4,7 +4,7 @@
 
 Codix is an extension for Decodable, make it more elegant and more easire to decode model from json.
 
-### Usage -- AnyDecoder decode at path
+### AnyDecoder decode at path
 
 ```swift
 let json = """
