@@ -17,8 +17,12 @@ class PathTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testValidPathPart() throws {
-        _ = try Path("[ddd][1]response[0]abc[1]haha")
+    func testValidPathPart() {
+        let path = Path("abc[1]efg")
+        XCTAssertEqual(path.components.count, 3)
+        XCTAssertEqual(path.components[0], .key(.string("abc")))
+        XCTAssertEqual(path.components[1], .index(1))
+        XCTAssertEqual(path.components[2], .key(.string("efg")))
     }
 
     func testPerformanceExample() throws {
