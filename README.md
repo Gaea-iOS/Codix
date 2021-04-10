@@ -135,7 +135,7 @@ Among them, "response"、"[0]"、"users"、"[1]"、"name" we call **PathComponen
 
 ### FAQ
 
-##### 1、As the path treat dot as separator, so how to decode a json witch contain dot-contained key?
+##### 1、As the path treat dot as separator, so how to decode a json which contain dot-contained key?
 
 One of the solutions is to init a Path specify the separator.
 
