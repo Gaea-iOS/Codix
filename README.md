@@ -2,7 +2,7 @@
 
 ### What is Codix
 
-Codix is an extension for Decodable, make it more elegant and more easire to decode model from json.
+Codix is an extension for Decodable, make it more elegant and more easier to decode model from json.
 
 ### AnyDecoder decode at path
 
