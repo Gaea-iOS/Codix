@@ -1,8 +1,5 @@
 //
-//  UnkeyedDecodingContainer.swift
-//  Codix
-//
-//  Created by Jerrywang on 2021/4/9.
+// Copyright (c) 2021 Jerry Wang <4452242970@qq.com>
 //
 
 import Foundation
