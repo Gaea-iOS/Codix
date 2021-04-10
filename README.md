@@ -114,7 +114,7 @@ Look backward to the example, we transform "salary" (which is a String type) int
 A **path** is used to decribe the coding path, It can be expressed by string literals, a path should look like
 
 ```	json
-"response[0]users[1]name"
+	"response[0]users[1]name"
 ```
 
 or
