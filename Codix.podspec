@@ -29,6 +29,7 @@ Pod::Spec.new do |spec|
                    DESC
 
   spec.homepage     = "https://github.com/Gaea-iOS/Codix"
+
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -82,7 +83,6 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/Gaea-iOS/Codix.git", :tag => "#{spec.version}" }
 
-
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  CocoaPods is smart about how it includes source code. For source files
@@ -96,7 +96,6 @@ Pod::Spec.new do |spec|
   # spec.public_header_files = "Classes/**/*.h"
   spec.swift_version = "5.3.2"
   spec.ios.deployment_target = "10.0"
-
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
