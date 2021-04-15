@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "Codix"
   spec.version      = "0.0.1"
-  spec.summary      = "A short description of Codix."
+  spec.summary      = "An extension for Decoder to make it more elegant and easier to decode."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,9 +25,11 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+                   Codix is an extension for Decodable, make it more elegant and more easier to decode model from json.
                    DESC
 
-  spec.homepage     = "http://EXAMPLE/Codix"
+  spec.homepage     = "https://github.com/Gaea-iOS/Codix"
+
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,7 +40,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -79,8 +81,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/Codix.git", :tag => "#{spec.version}" }
-
+  spec.source       = { :git => "https://github.com/Gaea-iOS/Codix.git", :tag => "#{spec.version}" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -90,11 +91,11 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
+  spec.source_files  = "Codix/**/*.swift"
 
   # spec.public_header_files = "Classes/**/*.h"
-
+  spec.swift_version = "5.3.2"
+  spec.ios.deployment_target = "10.0"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
