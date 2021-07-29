@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Codix"
-  spec.version      = "0.0.1"
+  spec.version      = "0.2.0"
   spec.summary      = "An extension for Decoder to make it more elegant and easier to decode."
 
   # This description is used to generate tags and improve search results.
@@ -95,7 +95,7 @@ Pod::Spec.new do |spec|
 
   # spec.public_header_files = "Classes/**/*.h"
   spec.swift_version = "5.3.2"
-  spec.ios.deployment_target = "10.0"
+  spec.ios.deployment_target = "9.0"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
