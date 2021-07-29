@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8615E4EA26298E25003747EC /* Codixable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615E4E926298E25003747EC /* Codixable.swift */; };
+		8615E4F226299418003747EC /* Coded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615E4F126299418003747EC /* Coded.swift */; };
 		86CE5C72261F4E8E00CF3B7F /* Codix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CE5C68261F4E8E00CF3B7F /* Codix.framework */; };
 		86CE5C77261F4E8E00CF3B7F /* CodixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE5C76261F4E8E00CF3B7F /* CodixTests.swift */; };
 		86CE5C79261F4E8E00CF3B7F /* Codix.h in Headers */ = {isa = PBXBuildFile; fileRef = 86CE5C6B261F4E8E00CF3B7F /* Codix.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8615E4E926298E25003747EC /* Codixable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codixable.swift; sourceTree = "<group>"; };
+		8615E4F126299418003747EC /* Coded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coded.swift; sourceTree = "<group>"; };
 		86CE5C68261F4E8E00CF3B7F /* Codix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Codix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CE5C6B261F4E8E00CF3B7F /* Codix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Codix.h; sourceTree = "<group>"; };
 		86CE5C6C261F4E8E00CF3B7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8615E4E826298B6D003747EC /* PropertyWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				8615E4E926298E25003747EC /* Codixable.swift */,
+				8615E4F126299418003747EC /* Coded.swift */,
+			);
+			path = PropertyWrapper;
+			sourceTree = "<group>";
+		};
 		86CE5C5E261F4E8E00CF3B7F = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +120,7 @@
 		86CE5C6A261F4E8E00CF3B7F /* Codix */ = {
 			isa = PBXGroup;
 			children = (
+				8615E4E826298B6D003747EC /* PropertyWrapper */,
 				86CE5CE326207FB900CF3B7F /* AnyDecoder */,
 				86CE5CB426202B2D00CF3B7F /* Decoder */,
 				86CE5C9F26201CC300CF3B7F /* Transformer */,
@@ -332,9 +346,11 @@
 			files = (
 				86CE5CB626202B6A00CF3B7F /* UnkeyedDecodingContainer+MoveNext.swift in Sources */,
 				86CE5CC82620585500CF3B7F /* UnkeyedDecodingContainer+Decode.swift in Sources */,
+				8615E4F226299418003747EC /* Coded.swift in Sources */,
 				86CE5C9C261F6FB500CF3B7F /* CodixError.swift in Sources */,
 				86CE5CA726201E5800CF3B7F /* DateTransformer.swift in Sources */,
 				86CE5CAB2620255200CF3B7F /* BoolTransformer.swift in Sources */,
+				8615E4EA26298E25003747EC /* Codixable.swift in Sources */,
 				86CE5C91261F516400CF3B7F /* PathComponent.Key+CodingKey.swift in Sources */,
 				86CE5CBC26202FC300CF3B7F /* UnkeyedDecodingContainer+Container.swift in Sources */,
 				86CE5CDC26207D4300CF3B7F /* Decoder+DecodeIfPresent.swift in Sources */,
