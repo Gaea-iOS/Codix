@@ -8,11 +8,11 @@ protocol PropertyWrapperDecoding {
     mutating func decode(from decoder: Decoder, forLabel label: String) throws
 }
 
-protocol Codixable: Decodable {
+protocol Decodixable: Decodable {
     init()
 }
 
-extension Codixable {
+extension Decodixable {
     init(from decoder: Decoder) throws {
         self.init()
 

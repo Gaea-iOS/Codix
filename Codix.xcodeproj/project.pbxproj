@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8615E4EA26298E25003747EC /* Codixable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615E4E926298E25003747EC /* Codixable.swift */; };
-		8615E4F226299418003747EC /* Coded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615E4F126299418003747EC /* Coded.swift */; };
+		8613B92926B2D9980092CAE6 /* CodedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613B92826B2D9980092CAE6 /* CodedTests.swift */; };
+		8615E4EA26298E25003747EC /* Decodixable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615E4E926298E25003747EC /* Decodixable.swift */; };
+		8615E4F226299418003747EC /* Dedoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615E4F126299418003747EC /* Dedoded.swift */; };
 		86CE5C72261F4E8E00CF3B7F /* Codix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CE5C68261F4E8E00CF3B7F /* Codix.framework */; };
 		86CE5C77261F4E8E00CF3B7F /* CodixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE5C76261F4E8E00CF3B7F /* CodixTests.swift */; };
 		86CE5C79261F4E8E00CF3B7F /* Codix.h in Headers */ = {isa = PBXBuildFile; fileRef = 86CE5C6B261F4E8E00CF3B7F /* Codix.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +31,7 @@
 		86CE5CDC26207D4300CF3B7F /* Decoder+DecodeIfPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE5CDB26207D4300CF3B7F /* Decoder+DecodeIfPresent.swift */; };
 		86CE5CE026207F5D00CF3B7F /* AnyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE5CDF26207F5D00CF3B7F /* AnyDecoder.swift */; };
 		86CE5CE52620802F00CF3B7F /* AnyDecoder+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE5CE42620802F00CF3B7F /* AnyDecoder+Decode.swift */; };
+		86F176FC26C76CCB00D50420 /* Decoder+Decode_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F176FB26C76CCB00D50420 /* Decoder+Decode_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8615E4E926298E25003747EC /* Codixable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codixable.swift; sourceTree = "<group>"; };
-		8615E4F126299418003747EC /* Coded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coded.swift; sourceTree = "<group>"; };
+		8613B92826B2D9980092CAE6 /* CodedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedTests.swift; sourceTree = "<group>"; };
+		8615E4E926298E25003747EC /* Decodixable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decodixable.swift; sourceTree = "<group>"; };
+		8615E4F126299418003747EC /* Dedoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dedoded.swift; sourceTree = "<group>"; };
 		86CE5C68261F4E8E00CF3B7F /* Codix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Codix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CE5C6B261F4E8E00CF3B7F /* Codix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Codix.h; sourceTree = "<group>"; };
 		86CE5C6C261F4E8E00CF3B7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 		86CE5CDB26207D4300CF3B7F /* Decoder+DecodeIfPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decoder+DecodeIfPresent.swift"; sourceTree = "<group>"; };
 		86CE5CDF26207F5D00CF3B7F /* AnyDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDecoder.swift; sourceTree = "<group>"; };
 		86CE5CE42620802F00CF3B7F /* AnyDecoder+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyDecoder+Decode.swift"; sourceTree = "<group>"; };
+		86F176FB26C76CCB00D50420 /* Decoder+Decode_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decoder+Decode_Tests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +97,8 @@
 		8615E4E826298B6D003747EC /* PropertyWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				8615E4E926298E25003747EC /* Codixable.swift */,
-				8615E4F126299418003747EC /* Coded.swift */,
+				8615E4E926298E25003747EC /* Decodixable.swift */,
+				8615E4F126299418003747EC /* Dedoded.swift */,
 			);
 			path = PropertyWrapper;
 			sourceTree = "<group>";
@@ -135,6 +139,8 @@
 		86CE5C75261F4E8E00CF3B7F /* CodixTests */ = {
 			isa = PBXGroup;
 			children = (
+				86F176FA26C76C0800D50420 /* Decoder */,
+				8613B92826B2D9980092CAE6 /* CodedTests.swift */,
 				86CE5C94261F6A3800CF3B7F /* Path */,
 				86CE5C76261F4E8E00CF3B7F /* CodixTests.swift */,
 				86CE5C78261F4E8E00CF3B7F /* Info.plist */,
@@ -192,6 +198,14 @@
 				86CE5CE42620802F00CF3B7F /* AnyDecoder+Decode.swift */,
 			);
 			path = AnyDecoder;
+			sourceTree = "<group>";
+		};
+		86F176FA26C76C0800D50420 /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				86F176FB26C76CCB00D50420 /* Decoder+Decode_Tests.swift */,
+			);
+			path = Decoder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,11 +360,11 @@
 			files = (
 				86CE5CB626202B6A00CF3B7F /* UnkeyedDecodingContainer+MoveNext.swift in Sources */,
 				86CE5CC82620585500CF3B7F /* UnkeyedDecodingContainer+Decode.swift in Sources */,
-				8615E4F226299418003747EC /* Coded.swift in Sources */,
+				8615E4F226299418003747EC /* Dedoded.swift in Sources */,
 				86CE5C9C261F6FB500CF3B7F /* CodixError.swift in Sources */,
 				86CE5CA726201E5800CF3B7F /* DateTransformer.swift in Sources */,
 				86CE5CAB2620255200CF3B7F /* BoolTransformer.swift in Sources */,
-				8615E4EA26298E25003747EC /* Codixable.swift in Sources */,
+				8615E4EA26298E25003747EC /* Decodixable.swift in Sources */,
 				86CE5C91261F516400CF3B7F /* PathComponent.Key+CodingKey.swift in Sources */,
 				86CE5CBC26202FC300CF3B7F /* UnkeyedDecodingContainer+Container.swift in Sources */,
 				86CE5CDC26207D4300CF3B7F /* Decoder+DecodeIfPresent.swift in Sources */,
@@ -370,6 +384,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86F176FC26C76CCB00D50420 /* Decoder+Decode_Tests.swift in Sources */,
+				8613B92926B2D9980092CAE6 /* CodedTests.swift in Sources */,
 				86CE5C96261F6A4B00CF3B7F /* PathTests.swift in Sources */,
 				86CE5C77261F4E8E00CF3B7F /* CodixTests.swift in Sources */,
 			);

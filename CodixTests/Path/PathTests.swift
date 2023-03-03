@@ -14,12 +14,24 @@ class PathTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testValidPathPart() {
-        let path = Path("abc[1]efg")
+    func testPathInitFromString() {
+        let path = Path("response.[0]key1.key2[1]key3..key4")
+        XCTAssertEqual(path.components.count, 7)
+        XCTAssertEqual(path.components[0], "response")
+        XCTAssertEqual(path.components[1], 0)
+        XCTAssertEqual(path.components[2], "key1")
+        XCTAssertEqual(path.components[3], "key2")
+        XCTAssertEqual(path.components[4], 1)
+        XCTAssertEqual(path.components[5], "key3")
+        XCTAssertEqual(path.components[6], "key4")
+    }
+
+    func testPathInitFromArray() {
+        let path: Path = ["key1", 0, "key2"]
         XCTAssertEqual(path.components.count, 3)
-        XCTAssertEqual(path.components[0], .key(.string("abc")))
-        XCTAssertEqual(path.components[1], .index(1))
-        XCTAssertEqual(path.components[2], .key(.string("efg")))
+        XCTAssertEqual(path.components[0], "key1")
+        XCTAssertEqual(path.components[1], 0)
+        XCTAssertEqual(path.components[2], "key2")
     }
 
     func testPerformanceExample() throws {
