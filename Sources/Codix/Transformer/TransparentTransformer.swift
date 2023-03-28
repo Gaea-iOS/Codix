@@ -4,8 +4,9 @@
 
 import Foundation
 
-struct TransparentTransformer<Value>: Transformer {
-    func transform(_ value: Value) throws -> Value {
+public struct TransparentTransformer<Value>: Transformer {
+    public init() {}
+    public func transform(_ value: Value) throws -> Value {
         value
     }
 }

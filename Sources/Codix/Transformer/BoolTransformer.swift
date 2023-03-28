@@ -4,20 +4,20 @@
 
 import Foundation
 
-struct BoolFromInt: Transformer {
-    func transform(_ value: Int) throws -> Bool {
+public struct BoolFromInt: Transformer {
+    public func transform(_ value: Int) throws -> Bool {
         value != 0
     }
 }
 
-struct BoolFromString: Transformer {
+public struct BoolFromString: Transformer {
     private let map: [String: Bool]
 
-    init(map: [String: Bool] = ["true": true, "false": false]) {
+    public init(map: [String: Bool] = ["true": true, "false": false]) {
         self.map = map
     }
 
-    func transform(_ value: String) throws -> Bool {
+    public func transform(_ value: String) throws -> Bool {
         if let bool = map[value] {
             return bool
         } else {

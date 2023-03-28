@@ -4,20 +4,20 @@
 
 import Foundation
 
-struct DateFromString: Transformer {
+public struct DateFromString: Transformer {
     private let formatter: DateFormatter
 
-    init(formatter: DateFormatter) {
+    public init(formatter: DateFormatter) {
         self.formatter = formatter
     }
 
-    init(format: String) {
+    public init(format: String) {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         self.init(formatter: formatter)
     }
 
-    func transform(_ value: String) throws -> Date {
+    public func transform(_ value: String) throws -> Date {
         if let date = formatter.date(from: value) {
             return date
         } else {
@@ -26,15 +26,15 @@ struct DateFromString: Transformer {
     }
 }
 
-struct DateFromTimeIntervalSince1970: Transformer {
-    enum TimeIntervalUnit {
+public struct DateFromTimeIntervalSince1970: Transformer {
+    public enum TimeIntervalUnit {
         case second
         case millisecond
     }
 
     private let unit: TimeIntervalUnit
 
-    init(unit: TimeIntervalUnit) {
+    public init(unit: TimeIntervalUnit) {
         self.unit = unit
     }
 
@@ -47,7 +47,7 @@ struct DateFromTimeIntervalSince1970: Transformer {
         }
     }
 
-    func transform(_ value: TimeInterval) throws -> Date {
+    public func transform(_ value: TimeInterval) throws -> Date {
         Date(timeIntervalSince1970: seconds(of: value))
     }
 }

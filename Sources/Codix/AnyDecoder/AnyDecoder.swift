@@ -9,5 +9,5 @@ public protocol AnyDecoder: AnyObject {
     func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable
 }
 
-extension JSONDecoder: AnyDecoder {}
-extension PropertyListDecoder: AnyDecoder {}
+public extension JSONDecoder: AnyDecoder {}
+public extension PropertyListDecoder: AnyDecoder {}

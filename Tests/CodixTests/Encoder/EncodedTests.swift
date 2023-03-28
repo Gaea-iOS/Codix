@@ -6,6 +6,22 @@
 import XCTest
 
 class EncodedTests: XCTestCase {
+    struct User: Encodixable, Decodixable, Equatable {
+        @Coded(isRequired: true)
+        var id: Int = 0
+
+        @Coded()
+        var name: String = "Default"
+
+        var weibo: URL?
+
+        @Coded(isRequired: false)
+        var age: Int = 16
+
+        @Coded(path: "pets[0].cat.name")
+        var catName: String? = nil
+    }
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -14,39 +30,7 @@ class EncodedTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testEncoded() throws {
-//        let json = """
-//        {
-//            "id": 1234,
-//            "name": "Jerry",
-//            "weibo": "http://www.weibo.com/jerry",
-//            "pets": [
-//                {
-//                    "cat": {
-//                        "id": 231,
-//                        "name": "Tom"
-//                    }
-//                }
-//            ]
-//        }
-//        """.data(using: .utf8)!
-
-        struct User: Encodixable, Decodixable, Equatable {
-            @Coded(isRequired: true)
-            var id: Int = 0
-
-            @Coded()
-            var name: String = "Default"
-
-            var weibo: URL?
-
-            @Coded(isRequired: false)
-            var age: Int = 16
-
-            @Coded(path: "pets[0].cat.name")
-            var catName: String? = nil
-        }
-
+    func testCoded() throws {
         let user = User(id: 178, name: "Jerry", weibo: URL(string: "https://www.weibo.com")!, age: 12, catName: "Tom")
         let data = try JSONEncoder().encode(user)
 
@@ -57,6 +41,32 @@ class EncodedTests: XCTestCase {
         XCTAssertEqual(user2.name, "Jerry")
         XCTAssertNil(user2.weibo)
         XCTAssertEqual(user2.age, 12)
+        XCTAssertEqual(user.catName, "Tom")
+    }
+
+    func testCoded2() throws {
+        let json = """
+        {
+            "id": 1234,
+            "name": "Jerry",
+            "weibo": "http://www.weibo.com/jerry",
+            "pets": [
+                {
+                    "cat": {
+                        "id": 231,
+                        "name": "Tom"
+                    }
+                }
+            ]
+        }
+        """.data(using: .utf8)!
+
+        let user = try JSONDecoder().decode(User.self, from: json)
+
+        XCTAssertEqual(user.id, 1234)
+        XCTAssertEqual(user.name, "Jerry")
+        XCTAssertNil(user.weibo)
+        XCTAssertEqual(user.age, 16)
         XCTAssertEqual(user.catName, "Tom")
     }
 

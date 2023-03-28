@@ -5,7 +5,7 @@
 import Foundation
 
 @propertyWrapper
-final class Coded<Value, Forwoard, Backward>
+public final class Coded<Value, Forwoard, Backward>
     where Forwoard: Transformer,
     Backward: Transformer,
     Forwoard.From == Value,
@@ -24,13 +24,13 @@ final class Coded<Value, Forwoard, Backward>
 
     private let backward: Backward
 
-    var wrappedValue: Value
+    public var wrappedValue: Value
 
-    init(wrappedValue: Value,
-         path: Path? = nil,
-         isRequired: Bool = false,
-         forward: Forwoard,
-         backward: Backward)
+    public init(wrappedValue: Value,
+                path: Path? = nil,
+                isRequired: Bool = false,
+                forward: Forwoard,
+                backward: Backward)
     {
         self.wrappedValue = wrappedValue
         self.path = path
@@ -39,17 +39,17 @@ final class Coded<Value, Forwoard, Backward>
         self.backward = backward
     }
 
-    init(wrappedValue: Value,
-         path: Path? = nil,
-         isRequired: Bool = false,
-         forward: Forwoard = TransparentTransformer<Value>(),
-         backward: Backward = TransparentTransformer<Value>())
+    public init(wrappedValue: Value,
+                path: Path? = nil,
+                isRequired: Bool = false,
+                forword: Forwoard = TransparentTransformer<Value>(),
+                backward: Backward = TransparentTransformer<Value>())
         where Forwoard == TransparentTransformer<Value>, Backward == TransparentTransformer<Value>
     {
         self.wrappedValue = wrappedValue
         self.path = path
         self.isRequired = isRequired
-        self.forward = forward
+        forward = forword
         self.backward = backward
     }
 }
@@ -87,7 +87,7 @@ extension Coded: PropertyWrapperDecoding where Backward.From: Decodable {
 }
 
 extension Coded: Equatable where Value: Equatable {
-    static func == (lhs: Coded<Value, Forwoard, Backward>, rhs: Coded<Value, Forwoard, Backward>) -> Bool {
+    public static func == (lhs: Coded<Value, Forwoard, Backward>, rhs: Coded<Value, Forwoard, Backward>) -> Bool {
         lhs.wrappedValue == rhs.wrappedValue
     }
 }

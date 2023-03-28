@@ -8,7 +8,7 @@ protocol PropertyWrapperEncoding {
     mutating func encode(to encoder: Encoder, forLabel label: String) throws
 }
 
-protocol Encodixable: Encodable {}
+public protocol Encodixable: Encodable {}
 
 extension Encodixable {
     func encode(to encoder: Encoder) throws {

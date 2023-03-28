@@ -9,5 +9,5 @@ public protocol AnyEncoder: AnyObject {
     func encode(_ value: some Encodable) throws -> Data
 }
 
-extension JSONEncoder: AnyEncoder {}
-extension PropertyListEncoder: AnyEncoder {}
+public extension JSONEncoder: AnyEncoder {}
+public extension PropertyListEncoder: AnyEncoder {}

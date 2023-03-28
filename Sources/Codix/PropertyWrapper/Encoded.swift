@@ -5,7 +5,7 @@
 import Foundation
 
 @propertyWrapper
-final class Encoded<Value, Trans> where Trans: Transformer, Trans.From == Value {
+public final class Encoded<Value, Trans> where Trans: Transformer, Trans.From == Value {
     /** the decode path */
     private let path: Path?
 
@@ -15,12 +15,12 @@ final class Encoded<Value, Trans> where Trans: Transformer, Trans.From == Value 
     /** The data transformer */
     private let transformer: Trans
 
-    var wrappedValue: Value
+    public var wrappedValue: Value
 
-    init(wrappedValue: Value,
-         path: Path? = nil,
-         isRequired: Bool = false,
-         using transformer: Trans)
+    public init(wrappedValue: Value,
+                path: Path? = nil,
+                isRequired: Bool = false,
+                using transformer: Trans)
     {
         self.wrappedValue = wrappedValue
         self.path = path
@@ -28,10 +28,10 @@ final class Encoded<Value, Trans> where Trans: Transformer, Trans.From == Value 
         self.transformer = transformer
     }
 
-    init(wrappedValue: Value,
-         path: Path? = nil,
-         isRequired: Bool = false,
-         using transformer: Trans = TransparentTransformer<Value>())
+    public init(wrappedValue: Value,
+                path: Path? = nil,
+                isRequired: Bool = false,
+                using transformer: Trans = TransparentTransformer<Value>())
         where Trans == TransparentTransformer<Value>
     {
         self.wrappedValue = wrappedValue

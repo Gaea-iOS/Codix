@@ -8,7 +8,7 @@ protocol PropertyWrapperDecoding {
     mutating func decode(from decoder: Decoder, forLabel label: String) throws
 }
 
-protocol Decodixable: Decodable {
+public protocol Decodixable: Decodable {
     init()
 }
 

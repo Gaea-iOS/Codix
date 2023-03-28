@@ -4,8 +4,8 @@
 
 import Foundation
 
-struct IntFromString: Transformer {
-    func transform(_ value: String) throws -> Int {
+public struct IntFromString: Transformer {
+    public func transform(_ value: String) throws -> Int {
         guard let decimal = Int(value) else {
             throw CodixError.transformFailed("Can not transform Int from String \(value)")
         }
@@ -13,8 +13,8 @@ struct IntFromString: Transformer {
     }
 }
 
-struct DoubleFromString: Transformer {
-    func transform(_ value: String) throws -> Double {
+public struct DoubleFromString: Transformer {
+    public func transform(_ value: String) throws -> Double {
         guard let decimal = Double(value) else {
             throw CodixError.transformFailed("Can not transform Double from String \(value)")
         }
