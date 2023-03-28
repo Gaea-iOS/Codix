@@ -1,2 +1,3 @@
-# File Header
---header "//\n// Copyright (c) {year} Jerry Wang <4452242970@qq.com>\n//"
+--header "{file}\nCopyright (c) {year} Nostudio\nCreated by Jerry X T Wang on {created}."
+
+--disable trailingCommas
