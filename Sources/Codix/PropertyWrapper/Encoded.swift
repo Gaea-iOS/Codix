@@ -5,7 +5,7 @@
 import Foundation
 
 @propertyWrapper
-public final class Encoded<Value, Trans> where Trans: Transformer, Trans.From == Value {
+public struct Encoded<Value, Trans> where Trans: Transformer, Trans.From == Value {
     /** the decode path */
     private let path: Path?
 

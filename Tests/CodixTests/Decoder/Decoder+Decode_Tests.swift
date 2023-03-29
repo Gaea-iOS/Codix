@@ -177,7 +177,7 @@ class DecoderDecodeTests: XCTestCase {
           case parent
         }
 
-        enum Salary {
+        enum Salary: Equatable {
           case usd(Int)
           case rmb(Int)
         }
@@ -220,6 +220,19 @@ class DecoderDecodeTests: XCTestCase {
         }
 
         let user = try JSONDecoder().decode(User.self, from: json, at: "response.users[0]")
+
+        XCTAssertEqual(user.id, 78893)
+        XCTAssertEqual(user.name, "Jerry")
+        
+        XCTAssertNotNil(user.birthdate)
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: user.birthdate!)
+        XCTAssertEqual(dateComponents.year, 2000)
+        XCTAssertEqual(dateComponents.month, 8)
+        XCTAssertEqual(dateComponents.day, 12)
+        XCTAssertEqual(user.avatar?.absoluteString, "https://images.baidu.com/avatars/27883.jpg")
+        XCTAssertEqual(user.role, .student)
+        XCTAssertEqual(user.salary, .usd(4500))
+        XCTAssertEqual(user.isMale, true)
     }
 
     func testPerformanceExample() throws {
