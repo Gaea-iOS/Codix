@@ -5,7 +5,7 @@
 import Foundation
 
 @propertyWrapper
-public struct Decoded<Value, Trans> where Trans: Transformer, Trans.To == Value {
+public final class Decoded<Value, Trans> where Trans: Transformer, Trans.To == Value {
     /** the decode path */
     private let path: Path?
 
@@ -42,7 +42,7 @@ public struct Decoded<Value, Trans> where Trans: Transformer, Trans.To == Value 
 }
 
 extension Decoded: PropertyWrapperDecoding where Trans.From: Decodable {
-    mutating func decode(from decoder: Decoder, forLabel label: String) throws {
+    func decode(from decoder: Decoder, forLabel label: String) throws {
         /*
          Compiler will auto generate a internal property named "_{property_name}" for the property wrapped by property wrapper.
          Refer to Language Guide/Properties of book <The Swift Programming Language (Swift 5.2)>

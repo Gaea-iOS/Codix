@@ -19,12 +19,10 @@ extension Decodixable {
         self.init()
 
         for child in Mirror(reflecting: self).children {
-            guard var decodingValue = child.value as? PropertyWrapperDecoding,
-                  let label = child.label
-            else {
-                continue
+            if var decodingValue = child.value as? PropertyWrapperDecoding,
+               let label = child.label {
+                try decodingValue.decode(from: decoder, forLabel: label)
             }
-            try decodingValue.decode(from: decoder, forLabel: label)
         }
     }
 }

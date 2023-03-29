@@ -5,7 +5,7 @@
 import Foundation
 
 @propertyWrapper
-public struct Coded<Value, Forwoard, Backward>
+public final class Coded<Value, Forwoard, Backward>
     where Forwoard: Transformer,
     Backward: Transformer,
     Forwoard.From == Value,
@@ -70,7 +70,7 @@ extension Coded: PropertyWrapperEncoding where Forwoard.To: Encodable {
 }
 
 extension Coded: PropertyWrapperDecoding where Backward.From: Decodable {
-    mutating func decode(from decoder: Decoder, forLabel label: String) throws {
+    func decode(from decoder: Decoder, forLabel label: String) throws {
         /*
          Compiler will auto generate a internal property named "_{property_name}" for the property wrapped by property wrapper.
          Refer to Language Guide/Properties of book <The Swift Programming Language (Swift 5.2)>
