@@ -153,19 +153,21 @@ class DecoderDecodeTests: XCTestCase {
     func test() throws {
         let json = """
         {
-          "response": {
-            "users": {
-              "my_id": 78893,
-              "nick_name": "Jerry",
-              "profile": {
-                "birth_day": "2000/08/12",
-                "avatar": "https://images.baidu.com/avatars/27883.jpg",
-                "role": "student"
-              }
-              "salary": "usd:4500",
-              "male": "true"
+            "response": {
+                "users": [
+                    {
+                        "my_id": 78893,
+                        "nick_name": "Jerry",
+                        "profile": {
+                            "birth_day": "2000/08/12",
+                            "avatar": "https://images.baidu.com/avatars/27883.jpg",
+                            "role": "student"
+                        },
+                        "salary": "usd:4500",
+                        "male": "true"
+                    }
+                ]
             }
-          }
         }
         """.data(using: .utf8)!
 
@@ -211,7 +213,7 @@ class DecoderDecodeTests: XCTestCase {
             name = try decoder.decode(at: "nick_name")
             birthdate = try decoder.decodeIfPresent(at: "profile.birth_day", using: DateFromString(format: "yyyy/MM/dd"))
             avatar = try decoder.decodeIfPresent(at: "profile.avatar")
-            role = try decoder.decode(at: "role")
+            role = try decoder.decode(at: "profile.role")
             salary = try decoder.decode(at: "salary", using: SalaryTransformer())
             isMale = try decoder.decode(at: "male", using: { $0 == "true" ? true : false })
           }
