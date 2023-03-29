@@ -40,6 +40,7 @@ class DecoderDecodeTests: XCTestCase {
         XCTAssertEqual(user.nickName, "Jerry")
         XCTAssertEqual(user.weiboURL.absoluteString, "http://www.weibo.com/jerry")
     }
+    
 
     func testDecodeKeyedContainer() throws {
         let json = """
@@ -147,6 +148,76 @@ class DecoderDecodeTests: XCTestCase {
         let zoo = try JSONDecoder().decode(Zoo.self, from: json)
         XCTAssertEqual(zoo.cat, Cat(id: 30, name: "John"))
         XCTAssertEqual(zoo.catMaynotExist, nil)
+    }
+    
+    func test() throws {
+        let json = """
+        {
+          "response": {
+            "users": {
+              "my_id": 78893,
+              "nick_name": "Jerry",
+              "profile": {
+                "birth_day": "2000/08/12",
+                "avatar": "https://images.baidu.com/avatars/27883.jpg",
+                "role": "student"
+              }
+              "salary": "usd:4500",
+              "male": "true"
+            }
+          }
+        }
+        """.data(using: .utf8)!
+
+        enum Role: String, Decodable {
+          case student
+          case teacher
+          case parent
+        }
+
+        enum Salary {
+          case usd(Int)
+          case rmb(Int)
+        }
+
+        struct SalaryTransformer: Transformer {
+          func transform(_ value: String) throws -> Salary {
+            let components = value.split(separator: ":")
+            guard components.count == 2,
+            components[0] == "usd" || components[0] == "rmb",
+            let amount = Int(components[1]) else {
+              throw CodixError.transformFailed("Can not transform \(value) to Enum Salary")
+            }
+            
+            if components[0] == "usd" {
+              return .usd(amount)
+            } else {
+              return .rmb(amount)
+            }
+          }
+        }
+
+        struct User: Decodable {
+          let id: Int
+          let name: String
+          let birthdate: Date?
+          let avatar: URL?
+          let role: Role
+          let salary: Salary
+          let isMale: Bool
+          
+          init(from decoder: Decoder) throws {
+            id = try decoder.decode(at: "my_id")
+            name = try decoder.decode(at: "nick_name")
+            birthdate = try decoder.decodeIfPresent(at: "profile.birth_day", using: DateFromString(format: "yyyy/MM/dd"))
+            avatar = try decoder.decodeIfPresent(at: "profile.avatar")
+            role = try decoder.decode(at: "role")
+            salary = try decoder.decode(at: "salary", using: SalaryTransformer())
+            isMale = try decoder.decode(at: "male", using: { $0 == "true" ? true : false })
+          }
+        }
+
+        let user = try JSONDecoder().decode(User.self, from: json, at: "response.users[0]")
     }
 
     func testPerformanceExample() throws {

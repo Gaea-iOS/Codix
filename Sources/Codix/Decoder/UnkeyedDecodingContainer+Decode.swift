@@ -17,7 +17,12 @@ extension UnkeyedDecodingContainer {
         _ type: T.Type = T.self,
         atIndex index: Int
     ) throws -> T? where T: Decodable {
-        try move(to: index)
+        do {
+            try move(to: index)
+        } catch {
+            return nil
+        }
+        
         return try decodeIfPresent(type)
     }
 }

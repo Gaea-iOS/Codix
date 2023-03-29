@@ -31,7 +31,7 @@ public final class Decoded<Value, Trans> where Trans: Transformer, Trans.To == V
     public init(wrappedValue: Value,
                 path: Path? = nil,
                 isRequired: Bool = false,
-                using transformer: Trans = TransparentTransformer<Value>())
+                using transformer: Trans = .init())
         where Trans == TransparentTransformer<Value>
     {
         self.wrappedValue = wrappedValue
@@ -58,6 +58,12 @@ extension Decoded: PropertyWrapperDecoding where Trans.From: Decodable {
     }
 }
 
+extension Decoded: Equatable where Value: Equatable {
+    public static func == (lhs: Decoded<Value, Trans>, rhs: Decoded<Value, Trans>) -> Bool {
+        lhs.wrappedValue == rhs.wrappedValue
+    }
+}
+
 extension String {
     func removingPrefix(_ prefix: String) -> String {
         guard hasPrefix(prefix) else {
@@ -66,3 +72,5 @@ extension String {
         return String(dropFirst(prefix.count))
     }
 }
+
+

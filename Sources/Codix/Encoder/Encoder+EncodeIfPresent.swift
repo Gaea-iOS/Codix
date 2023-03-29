@@ -14,6 +14,16 @@ public extension Encoder {
 }
 
 public extension Encoder {
+    func encodeIfPresent<T>(
+        _ value: T?,
+        at path: Path,
+        using transformer: @escaping (T) throws -> some Encodable
+    ) throws {
+        try encodeIfPresent(value, at: path, using: AnyTransformer(transformer))
+    }
+}
+
+public extension Encoder {
     func encodeIfPresent<T, F>(
         _ value: T?,
         at path: Path,
@@ -24,15 +34,6 @@ public extension Encoder {
     }
 }
 
-public extension Encoder {
-    func encodeIfPresent<T>(
-        _ value: T?,
-        at path: Path,
-        using transformer: @escaping (T) throws -> some Encodable
-    ) throws {
-        try encodeIfPresent(value, at: path, using: AnyTransformer(transformer))
-    }
-}
 
 private extension Encoder {
     func _encodeIfPresent(

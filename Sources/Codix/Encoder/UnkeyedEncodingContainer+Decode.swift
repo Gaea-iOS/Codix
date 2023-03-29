@@ -20,8 +20,6 @@ extension UnkeyedEncodingContainer {
         try move(to: index)
         if let value {
             try encode(value)
-        } else {
-            try encodeNil()
         }
     }
 }

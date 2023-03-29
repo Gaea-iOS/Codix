@@ -42,8 +42,8 @@ public final class Coded<Value, Forwoard, Backward>
     public init(wrappedValue: Value,
                 path: Path? = nil,
                 isRequired: Bool = false,
-                forword: Forwoard = TransparentTransformer<Value>(),
-                backward: Backward = TransparentTransformer<Value>())
+                forword: Forwoard = .init(),
+                backward: Backward = .init())
         where Forwoard == TransparentTransformer<Value>, Backward == TransparentTransformer<Value>
     {
         self.wrappedValue = wrappedValue
@@ -91,3 +91,4 @@ extension Coded: Equatable where Value: Equatable {
         lhs.wrappedValue == rhs.wrappedValue
     }
 }
+

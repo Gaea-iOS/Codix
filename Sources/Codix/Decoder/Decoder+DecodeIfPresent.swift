@@ -14,6 +14,16 @@ public extension Decoder {
 }
 
 public extension Decoder {
+    func decodeIfPresent<T, R>(
+        _: T.Type = T.self,
+        at path: Path,
+        using transformer: @escaping (R) throws -> T
+    ) throws -> T? where R: Decodable {
+        try decodeIfPresent(at: path, using: AnyTransformer(transformer))
+    }
+}
+
+public extension Decoder {
     func decodeIfPresent<T, F>(
         _: T.Type = T.self,
         at path: Path,
@@ -21,16 +31,6 @@ public extension Decoder {
     ) throws -> T? where F: Transformer, F.From: Decodable, F.To == T {
         let value = try _decodeIfPresent(F.From.self, at: path)
         return try value.flatMap(transformer.transform(_:))
-    }
-}
-
-public extension Decoder {
-    func decodeIfPresent<T, R>(
-        _: T.Type = T.self,
-        at path: Path,
-        using transformer: @escaping (R) throws -> T
-    ) throws -> T? where R: Decodable {
-        try decodeIfPresent(at: path, using: AnyTransformer(transformer))
     }
 }
 
@@ -46,11 +46,11 @@ private extension Decoder {
         let findingPath = Path(Array(path.components.dropLast()))
         switch lastComponent {
         case let .key(key):
-            let container = try nestedKeyedContainer(at: findingPath)
-            return try container.decodeIfPresent(type, forKey: key)
+            let container = try? nestedKeyedContainer(at: findingPath)
+            return try container?.decodeIfPresent(type, forKey: key)
         case let .index(index):
-            var container = try nestedUnkeyedContainer(at: findingPath)
-            return try container.decodeIfPresent(atIndex: index)
+            var container = try? nestedUnkeyedContainer(at: findingPath)
+            return try container?.decodeIfPresent(atIndex: index)
         }
     }
 }
