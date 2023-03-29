@@ -15,7 +15,7 @@ public protocol Initializable {
 public protocol Decodixable: Decodable & Initializable {}
 
 extension Decodixable {
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         self.init()
 
         for child in Mirror(reflecting: self).children {

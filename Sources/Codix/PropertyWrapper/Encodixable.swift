@@ -11,7 +11,7 @@ protocol PropertyWrapperEncoding {
 public protocol Encodixable: Encodable {}
 
 extension Encodixable {
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         for child in Mirror(reflecting: self).children {
             guard var decodingValue = child.value as? PropertyWrapperEncoding,
                   let label = child.label
